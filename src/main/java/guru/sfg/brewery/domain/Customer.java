@@ -16,14 +16,16 @@
  */
 package guru.sfg.brewery.domain;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import java.sql.Timestamp;
 import java.util.Set;
 import java.util.UUID;
@@ -48,6 +50,7 @@ public class Customer extends BaseEntity {
 
     private String customerName;
 
+    @JdbcTypeCode(SqlTypes.VARCHAR)
     @Column(length = 36, columnDefinition = "varchar")
     private UUID apiKey;
 
